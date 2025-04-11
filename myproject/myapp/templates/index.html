@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; display: flex; }
+        .sidebar { width: 250px; background-color: #333; color: white; padding: 15px; height: 100vh; }
+        .sidebar a { color: white; text-decoration: none; display: block; padding: 10px; }
+        .sidebar a:hover { background-color: #575757; }
+        .content { flex: 1; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="{% url 'add_company' %}">Add Company </a>
+        <a href="{% url 'company_list' %}">Company Data</a> 
+        {% comment %} <a href="{% url 'add_CompanyDetails' %}">Add Company Details</a>  {% endcomment %}
+        {% comment %} <a href="{% url 'add_list' %}">Company Data List</a>  {% endcomment %}
+        <a href="{% url 'UploadZipView' %}">Upload Zip File</a> 
+        <a href="{% url 'zip_folder_data_show' %}">Zip Folder Data Show</a> 
+        
+        
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

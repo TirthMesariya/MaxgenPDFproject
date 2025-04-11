@@ -1,0 +1,13 @@
+Django==5.0.6
+torch==2.2.0
+pandas
+Djangorestframework
+numpy
+Pillow
+pytesseract
+opencv-python==4.11.0.86
+pyttsx3
+requests
+torchvision
+pdf2image
+numpy<2

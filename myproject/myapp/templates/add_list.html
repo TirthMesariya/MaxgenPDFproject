@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company List</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        form { margin-top: 20px; padding: 15px; border: 1px solid #ddd; background-color: #f9f9f9; max-width: 500px; }
+        input, select, textarea { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ccc; }
+        button { padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+
+    
+    <h2>Company Details</h2>
+
+    <!-- Second Table: Company File & Additional Details -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Company Name</th>
+                <th>File</th>
+                
+                <th>Created At</th>
+                <th>views</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detail in company_details %}
+            <tr>
+                <td>{{ detail.id }}</td>
+                <td>{{ detail.company.name }}</td>
+                <td>
+                    {% if detail.file %}
+                        <a href="{{ detail.file.url }}" target="_blank">Download File</a>
+                    {% else %}
+                        No File
+                    {% endif %}
+                </td>
+               
+                <td>{{ detail.created_at }}</td>
+                <td>
+                    <a href="{% url 'company_detail123' detail.id %}" target="_blank">
+                        <button>View</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

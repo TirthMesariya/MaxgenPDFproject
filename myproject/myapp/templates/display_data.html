@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Extracted Data</title>
+</head>
+<body>
+    <h2>Extracted Data from PDFs</h2>
+    {% for file_name, data in extracted_data.items %}
+        <h3>{{ file_name }}</h3>
+        <table border="1">
+            <tr>
+                {% for key in data.keys %}
+                    <th>{{ key }}</th>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for value in data.values %}
+                    <td>{{ value|join:", " }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    {% empty %}
+        <p>No data extracted.</p>
+    {% endfor %}
+</body>
+</html>
+

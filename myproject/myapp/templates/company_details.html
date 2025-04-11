@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Details</title>
+    <!-- Add Bootstrap for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Employee Salary Details</h2>
+
+        {% if employees %}
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>CODE</th>
+                        <th>Gross Salary</th>
+                        <th>I.TAX</th>
+                        <th>Profit TAX</th>
+                        <th>Treasure Voucher No.</th>
+                        <th>Treasure Voucher Date</th>
+                        <th>DDO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emp in employees %}
+                        <tr>
+                            <td>{{ emp.Name|default:"N/A" }}</td>
+                            <td>{{ emp.CODE|default:"N/A" }}</td>
+                            <td>{{ emp.Gross_Salary|default:"N/A" }}</td>
+                            <td>{{ emp.I.TAX|default:"N/A" }}</td>
+                            <td>{{ emp.Profit_TAX|default:"N/A" }}</td>
+                            <td>{{ emp.Treasure_voucher_No|default:"N/A" }}</td>
+                            <td>{{ emp.Treasure_voucher_Date|default:"N/A" }}</td>
+                            <td>{{ emp.DDO|default:"N/A" }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center">No data available</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-warning" role="alert">
+                No employee data found.
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS for any required components -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
