@@ -32,7 +32,8 @@ jobs:
                          newgrp docker 
  
          - name: Build the Docker image
-           run: sudo docker build -f /myproject/Dockerfile -t myzip .
+           run: sudo docker build -f /home/ubuntu/myproject/Dockerfile -t myzip /home/ubuntu/myproject
+
 
          - name: build conteiner
            run: sudo docker run --name mypdf -p 1234:1234 -d myzip
