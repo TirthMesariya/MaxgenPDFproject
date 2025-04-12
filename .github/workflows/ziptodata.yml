@@ -1,0 +1,43 @@
+name: Ziptodata
+
+on:  
+  push: 
+    branches: [ "main" ]
+
+jobs:
+
+   build:
+   
+     runs-on: self-hosted
+
+     steps:
+         - uses: actions/checkout@v4
+         - name: git install on ec2
+           run: sudo apt install git -y
+
+         - name: docker install on ec2
+           run: |
+                sudo apt-get update
+                sudo apt-get install -y \
+                ca-certificates \
+                  curl \
+                  gnupg \
+                    lsb-release
+                   sudo apt-get update
+                    curl -fsSL https://get.docker.com | sudo sh
+
+                       sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+                      sudo usermod -aG docker $USER
+                         newgrp docker 
+ 
+         - name: Build the Docker image
+           run: sudo docker build -f /myproject/Dockerfile -t myzip .
+
+         - name: build conteiner
+           run: sudo docker run --name mypdf -p 1234:1234 -d myzip
+
+        
+  
+
+ 
