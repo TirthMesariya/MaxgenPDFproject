@@ -34,7 +34,7 @@ jobs:
                          newgrp docker 
  
          - name: Build the Docker image
-           run: sudo docker build -f /home/ubuntu/_work/MaxgenPDFproject/MaxgenPDFproject/myproject/Dockerfile -t myzip /home/ubuntu/_work/MaxgenPDFproject/MaxgenPDFproject/myproject
+           run: sudo docker build -f /home/ubuntu/_work/MaxgenPDFproject/myproject/Dockerfile -t myzip /home/ubuntu/_work/MaxgenPDFproject/myproject
 
 
          - name: build conteiner
