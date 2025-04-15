@@ -1,7 +1,5 @@
 FROM python:3.10-slim
 
-FROM python:3.10-slim
-
 WORKDIR /app
 
 COPY . /app
@@ -13,10 +11,7 @@ RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     && rm -rf /var/lib/apt/lists/*
 
-
-
-
-RUN pip install --no-cache-dir -r /home/ubuntu/actions-runner/_work/MaxgenPDFproject/MaxgenPDFproject/myproject/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 1234
 
