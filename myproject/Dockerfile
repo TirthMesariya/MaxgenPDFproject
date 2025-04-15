@@ -15,7 +15,7 @@ COPY . /app
 
 
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /home/ubuntu/actions-runner/_work/MaxgenPDFproject/MaxgenPDFproject/myproject/requirements.txt
 
 EXPOSE 1234
 
