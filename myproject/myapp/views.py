@@ -135,7 +135,7 @@ from PIL import Image
 import io
 
 # Load the trained Faster R-CNN model
-model_path = r"C:\Users\Tirth\Downloads\MaxgenPDFproject\myproject\model_3.pth"
+model_path = r"/home/ubuntu/actions-runner/_work/MaxgenPDFproject/MaxgenPDFproject/MaxgenPDFproject/myproject/model_3.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 LABEL_MAP = {
@@ -159,7 +159,7 @@ model.to(device)
 model.eval()
 
 def extract_text_from_box(image, box):
-    pytesseract.pytesseract.tesseract_cmd = r"C:\Users\Tirth\Downloads\MaxgenPDFproject\myproject\Tesseract-OCR\tesseract.exe"
+    pytesseract.pytesseract.tesseract_cmd = r"/home/ubuntu/actions-runner/_work/MaxgenPDFproject/MaxgenPDFproject/MaxgenPDFproject/myproject/myproject/Tesseract-OCR/tesseract.exe"
     x1, y1, x2, y2 = map(int, box)
     cropped_region = image[y1:y2, x1:x2]
     gray = cv2.cvtColor(cropped_region, cv2.COLOR_BGR2GRAY)
@@ -271,10 +271,10 @@ import torchvision
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
 # Set Poppler path manually
-poppler_path = r"C:\Users\Tirth\Downloads\MaxgenPDFproject\myproject\bin"
+poppler_path = r"/home/ubuntu/actions-runner/_work/MaxgenPDFproject/MaxgenPDFproject/MaxgenPDFproject/myproject/bin"
 
 # Model path
-model_path = r"C:\Users\Tirth\Downloads\MaxgenPDFproject\myproject\model_3.pth"
+model_path = r"/home/ubuntu/actions-runner/_work/MaxgenPDFproject/MaxgenPDFproject/MaxgenPDFproject/myproject/model_3.pth"
 
 # Define label mapping
 LABEL_MAP = {
