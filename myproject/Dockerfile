@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY . /app
 
-COPY model_3.pth /app/myapp/model_3.pth
+
 
 RUN pip install --no-cache-dir -r requirements.txt
 
